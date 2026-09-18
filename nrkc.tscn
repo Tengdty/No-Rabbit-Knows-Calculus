@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://diiyeraknkqn8"]
+
+[node name="Label" type="Label" unique_id=1179442401]
+offset_left = 516.0
+offset_top = 297.0
+offset_right = 607.0
+offset_bottom = 320.0
+text = "test scene"
