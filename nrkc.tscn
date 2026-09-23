@@ -8,6 +8,15 @@ offset_bottom = 219.0
 scale = Vector2(5, 5)
 text = "TESTING PUSH"
 
+[node name="kaitlin-test" type="RichTextLabel" parent="." unique_id=465089769]
+layout_mode = 0
+offset_left = 7.7999954
+offset_top = 100.2
+offset_right = 100.59999
+offset_bottom = 140.2
+scale = Vector2(1, 0.9680001)
+text = "kaitlin test"
+
 [node name="a rich text label" type="RichTextLabel" parent="." unique_id=988078620]
 layout_mode = 0
 offset_left = 3.1999965
