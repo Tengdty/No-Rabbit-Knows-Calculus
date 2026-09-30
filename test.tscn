@@ -1,0 +1,359 @@
+[gd_scene format=3 uid="uid://4l77ylg7moqa"]
+
+[ext_resource type="Texture2D" uid="uid://cqmfik1ctyimx" path="res://temp.jpg" id="1_8uh7m"]
+[ext_resource type="Script" uid="uid://civdgod7fbq48" path="res://scroll_snap_script.gd" id="2_6uqi0"]
+[ext_resource type="Texture2D" uid="uid://d31myugpp20d5" path="res://scrolling_carrot.png" id="3_6uqi0"]
+
+[node name="Control" type="Control" unique_id=15196345]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1121467237]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_8uh7m")
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect" unique_id=897826214]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.42352942)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=225228945]
+custom_minimum_size = Vector2(913, 381)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -190.25
+offset_right = 488.0
+offset_bottom = 190.75
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+script = ExtResource("2_6uqi0")
+
+[node name="Container" type="HBoxContainer" parent="ScrollContainer" unique_id=1209977279]
+custom_minimum_size = Vector2(913, 381)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ScrollingCarrot" type="TextureRect" parent="ScrollContainer/Container" unique_id=790053015]
+layout_mode = 2
+texture = ExtResource("3_6uqi0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/Container/ScrollingCarrot" unique_id=1781548217]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.28904277
+anchor_top = 0.74167013
+anchor_right = -0.28904277
+anchor_bottom = 0.74167013
+offset_left = 380.36713
+offset_top = -119.32634
+offset_right = 540.3672
+offset_bottom = -55.326324
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[center]Save 1"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/Container/ScrollingCarrot" unique_id=63101185]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.3537259
+anchor_top = 0.39605805
+anchor_right = -0.3537259
+anchor_bottom = 0.39605805
+offset_left = 321.91956
+offset_top = 14.351883
+offset_right = 1294.2449
+offset_bottom = 190.35191
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Play Time: 0 Minutes
+Current Level: -2"
+
+[node name="ScrollingCarrot2" type="TextureRect" parent="ScrollContainer/Container" unique_id=490612896]
+layout_mode = 2
+texture = ExtResource("3_6uqi0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/Container/ScrollingCarrot2" unique_id=186550876]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.28904277
+anchor_top = 0.74167013
+anchor_right = -0.28904277
+anchor_bottom = 0.74167013
+offset_left = 380.36713
+offset_top = -119.32634
+offset_right = 540.3672
+offset_bottom = -55.326324
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[center]Save 1"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/Container/ScrollingCarrot2" unique_id=1207001233]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.3537259
+anchor_top = 0.39605805
+anchor_right = -0.3537259
+anchor_bottom = 0.39605805
+offset_left = 321.91956
+offset_top = 14.351883
+offset_right = 1294.2449
+offset_bottom = 190.35191
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Play Time: 0 Minutes
+Current Level: -2"
+
+[node name="ScrollingCarrot3" type="TextureRect" parent="ScrollContainer/Container" unique_id=1150481737]
+layout_mode = 2
+texture = ExtResource("3_6uqi0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/Container/ScrollingCarrot3" unique_id=307699021]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.28904277
+anchor_top = 0.74167013
+anchor_right = -0.28904277
+anchor_bottom = 0.74167013
+offset_left = 380.36713
+offset_top = -119.32634
+offset_right = 540.3672
+offset_bottom = -55.326324
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[center]Save 1"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/Container/ScrollingCarrot3" unique_id=763502654]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.3537259
+anchor_top = 0.39605805
+anchor_right = -0.3537259
+anchor_bottom = 0.39605805
+offset_left = 321.91956
+offset_top = 14.351883
+offset_right = 1294.2449
+offset_bottom = 190.35191
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Play Time: 0 Minutes
+Current Level: -2"
+
+[node name="ScrollingCarrot4" type="TextureRect" parent="ScrollContainer/Container" unique_id=517518297]
+layout_mode = 2
+texture = ExtResource("3_6uqi0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/Container/ScrollingCarrot4" unique_id=155860878]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.28904277
+anchor_top = 0.74167013
+anchor_right = -0.28904277
+anchor_bottom = 0.74167013
+offset_left = 380.36713
+offset_top = -119.32634
+offset_right = 540.3672
+offset_bottom = -55.326324
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[center]Save 1"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/Container/ScrollingCarrot4" unique_id=1905234982]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.3537259
+anchor_top = 0.39605805
+anchor_right = -0.3537259
+anchor_bottom = 0.39605805
+offset_left = 321.91956
+offset_top = 14.351883
+offset_right = 1294.2449
+offset_bottom = 190.35191
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Play Time: 0 Minutes
+Current Level: -2"
+
+[node name="ScrollingCarrot5" type="TextureRect" parent="ScrollContainer/Container" unique_id=584364701]
+layout_mode = 2
+texture = ExtResource("3_6uqi0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/Container/ScrollingCarrot5" unique_id=4471458]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.28904277
+anchor_top = 0.74167013
+anchor_right = -0.28904277
+anchor_bottom = 0.74167013
+offset_left = 380.36713
+offset_top = -119.32634
+offset_right = 540.3672
+offset_bottom = -55.326324
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[center]Save 1"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/Container/ScrollingCarrot5" unique_id=800073913]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.3537259
+anchor_top = 0.39605805
+anchor_right = -0.3537259
+anchor_bottom = 0.39605805
+offset_left = 321.91956
+offset_top = 14.351883
+offset_right = 1294.2449
+offset_bottom = 190.35191
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Play Time: 0 Minutes
+Current Level: -2"
+
+[node name="ScrollingCarrot6" type="TextureRect" parent="ScrollContainer/Container" unique_id=64226910]
+layout_mode = 2
+texture = ExtResource("3_6uqi0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/Container/ScrollingCarrot6" unique_id=514563679]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.28904277
+anchor_top = 0.74167013
+anchor_right = -0.28904277
+anchor_bottom = 0.74167013
+offset_left = 380.36713
+offset_top = -119.32634
+offset_right = 540.3672
+offset_bottom = -55.326324
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[center]Save 1"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/Container/ScrollingCarrot6" unique_id=645606711]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.3537259
+anchor_top = 0.39605805
+anchor_right = -0.3537259
+anchor_bottom = 0.39605805
+offset_left = 321.91956
+offset_top = 14.351883
+offset_right = 1294.2449
+offset_bottom = 190.35191
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Play Time: 0 Minutes
+Current Level: -2"
+
+[node name="ScrollingCarrot7" type="TextureRect" parent="ScrollContainer/Container" unique_id=320214082]
+layout_mode = 2
+texture = ExtResource("3_6uqi0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/Container/ScrollingCarrot7" unique_id=205373058]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.28904277
+anchor_top = 0.74167013
+anchor_right = -0.28904277
+anchor_bottom = 0.74167013
+offset_left = 380.36713
+offset_top = -119.32634
+offset_right = 540.3672
+offset_bottom = -55.326324
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[center]Save 1"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/Container/ScrollingCarrot7" unique_id=539928468]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.3537259
+anchor_top = 0.39605805
+anchor_right = -0.3537259
+anchor_bottom = 0.39605805
+offset_left = 321.91956
+offset_top = 14.351883
+offset_right = 1294.2449
+offset_bottom = 190.35191
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Play Time: 0 Minutes
+Current Level: -2"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1044144354]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -413.0
+offset_top = 40.0
+offset_right = 413.0
+offset_bottom = 181.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "No Rabbit 
+Knows Calculus"
+horizontal_alignment = 1
