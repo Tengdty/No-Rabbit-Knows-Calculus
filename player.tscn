@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1mk46qp3mw4i" path="res://scripts/player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://bvn88ydugxhpm" path="res://assets/sprites/images/Pink Man/Idle (32x32).png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://bygss3hu418rb" path="res://assets/sprites/images/Arrow/arrow.png" id="3_i3pqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
 atlas = ExtResource("2_onrkg")
@@ -88,12 +89,27 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhc0r"]
+size = Vector2(19, 24.666668)
+
 [node name="Player" type="CharacterBody2D" unique_id=2077856055]
 scale = Vector2(3, 3)
 script = ExtResource("1_4flbx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1771187284]
 texture_filter = 1
-position = Vector2(-3, -1)
 sprite_frames = SubResource("SpriteFrames_yhc0r")
 animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=270692006]
+position = Vector2(0.49999952, 3.3333335)
+shape = SubResource("RectangleShape2D_yhc0r")
+
+[node name="jumparrowroot" type="Node2D" parent="." unique_id=1378515879]
+rotation = -0.17453292
+
+[node name="arrow" type="Sprite2D" parent="jumparrowroot" unique_id=630976028]
+position = Vector2(26, 0)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_i3pqv")
