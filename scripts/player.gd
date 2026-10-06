@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const SETTINGS_SCENE = preload("res://assets/ui-elements/settings.tscn")
 
 # the rotation amount the arrow change
 var arrowSpeed: float = -75
@@ -55,3 +56,15 @@ func jump():
 	var jumpDir: Vector2 = (arrowSprite.global_position - global_position).normalized()
 	velocity.y = jumpDir.y * jumpPower
 	velocity.x = jumpDir.x * jumpPower
+
+
+func _on_button_pressed() -> void:
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.layer = 10
+	add_child(canvas_layer)
+	
+	var settings = SETTINGS_SCENE.instantiate()
+	canvas_layer.add_child(settings)
+	get_tree().paused = true
+	
+	print("SUCCESSFUL PRESS")

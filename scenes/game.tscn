@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://ewbe3gmkevfn" path="res://player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bccuyoivr7awm" path="res://icon.svg" id="2_yqjtg"]
+[ext_resource type="AudioStream" uid="uid://brq0ukh6bw32f" path="res://assets/audio/music/Into The City_fix.mp3" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://d0vg2niquvcjk" path="res://assets/sprites/images/settingsgear/geaaarrfrr.png" id="4_lbhrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1srpp"]
 size = Vector2(128.1915, 128)
@@ -10,6 +12,17 @@ size = Vector2(128.1915, 128)
 position = Vector2(562, 330)
 
 [node name="Player" parent="." unique_id=2077856055 instance=ExtResource("1_uwrxv")]
+
+[node name="Button" type="Button" parent="Player" unique_id=1269980280]
+offset_left = 159.66666
+offset_top = -99.333336
+offset_right = 184.66666
+offset_bottom = -75.66667
+focus_mode = 0
+icon = ExtResource("4_lbhrr")
+expand_icon = true
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=786147203]
 
 [node name="ground" type="StaticBody2D" parent="." unique_id=1611674375]
 position = Vector2(0, 122)
@@ -21,3 +34,11 @@ texture = ExtResource("2_yqjtg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground" unique_id=1010558423]
 shape = SubResource("RectangleShape2D_1srpp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1506447497]
+stream = ExtResource("3_lnu2h")
+volume_db = -19.889
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="Player/Button" to="Player" method="_on_button_pressed"]

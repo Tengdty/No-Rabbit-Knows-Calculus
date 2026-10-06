@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://c1f0ielj4oyfg"]
+
+[ext_resource type="Script" uid="uid://bxyrcpakvqc11" path="res://assets/ui-elements/settings.gd" id="1_1sbfk"]
+[ext_resource type="Texture2D" uid="uid://dcvbjijn27qkr" path="res://assets/sprites/images/close/xout.png" id="2_71ioi"]
+
+[node name="Settings" type="Control" unique_id=69489273]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1sbfk")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=248346372]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -178.0
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=800866913]
+layout_mode = 2
+
+[node name="Music" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=1212677522]
+layout_mode = 2
+max_value = 45.0
+step = 0.1
+value = 10.0
+
+[node name="Label" type="Label" parent="." unique_id=1838962490]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 111.0
+offset_right = 1161.0
+offset_bottom = 134.0
+text = "MUSIC:"
+
+[node name="Button" type="Button" parent="." unique_id=436590520]
+layout_mode = 0
+offset_left = 1053.0
+offset_top = 14.0
+offset_right = 1139.0
+offset_bottom = 99.0
+icon = ExtResource("2_71ioi")
+expand_icon = true
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Music" to="." method="_on_music_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
