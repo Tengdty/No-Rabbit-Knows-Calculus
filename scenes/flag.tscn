@@ -1,31 +1,34 @@
 [gd_scene format=3 uid="uid://bl48eka2irjs"]
 
 [ext_resource type="Script" uid="uid://cy5dg1l54nhhv" path="res://scripts/flag.gd" id="1_32e5v"]
-[ext_resource type="Texture2D" uid="uid://dfgsuvctydc1q" path="res://assets/sprites/flag animation.png" id="2_q38m2"]
+[ext_resource type="Texture2D" uid="uid://fwxetm16nr5a" path="res://assets/sprites/images/Flag/flagsheet.png" id="2_32e5v"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tjkec"]
-atlas = ExtResource("2_q38m2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_q38m2"]
+atlas = ExtResource("2_32e5v")
 region = Rect2(0, 0, 60, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s5mf2"]
-atlas = ExtResource("2_q38m2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjkec"]
+atlas = ExtResource("2_32e5v")
 region = Rect2(60, 0, 60, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7kq5u"]
-atlas = ExtResource("2_q38m2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5mf2"]
+atlas = ExtResource("2_32e5v")
 region = Rect2(120, 0, 60, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_msxbw"]
-atlas = ExtResource("2_q38m2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kq5u"]
+atlas = ExtResource("2_32e5v")
 region = Rect2(180, 0, 60, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rjvi2"]
-atlas = ExtResource("2_q38m2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_msxbw"]
+atlas = ExtResource("2_32e5v")
 region = Rect2(240, 0, 60, 60)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ye2cy"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q38m2")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tjkec")
 }, {
@@ -37,9 +40,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_msxbw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rjvi2")
 }],
 "loop": 2,
 "name": &"default",
@@ -50,12 +50,14 @@ animations = [{
 size = Vector2(9, 51)
 
 [node name="Flag" type="Area2D" unique_id=2103653490]
+collision_mask = 2
 script = ExtResource("1_32e5v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=375864910]
 position = Vector2(22, -28)
 sprite_frames = SubResource("SpriteFrames_ye2cy")
 autoplay = "default"
+frame_progress = 0.3371229
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=448481815]
 position = Vector2(0.5, -25.5)

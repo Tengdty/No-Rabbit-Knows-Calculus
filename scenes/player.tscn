@@ -94,6 +94,7 @@ size = Vector2(19, 24.666668)
 
 [node name="Player" type="CharacterBody2D" unique_id=2077856055]
 scale = Vector2(3, 3)
+collision_layer = 2
 script = ExtResource("1_4flbx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1771187284]
@@ -113,3 +114,6 @@ rotation = -0.17453292
 position = Vector2(26, 0)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_i3pqv")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=981839629]
+zoom = Vector2(2, 2)

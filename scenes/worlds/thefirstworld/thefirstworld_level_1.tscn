@@ -1,0 +1,18 @@
+[gd_scene format=4 uid="uid://c0jxinetxx12f"]
+
+[ext_resource type="TileSet" uid="uid://dsupxawg7qa0i" path="res://assets/new_tile_set.tres" id="1_cq563"]
+[ext_resource type="PackedScene" uid="uid://bl48eka2irjs" path="res://scenes/flag.tscn" id="2_f43gv"]
+[ext_resource type="PackedScene" uid="uid://ewbe3gmkevfn" path="res://scenes/player.tscn" id="3_5mk3f"]
+
+[node name="thefirstworld_level1" type="Node2D" unique_id=768732461]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1960643010]
+tile_map_data = PackedByteArray("AAD9/wAAAAAGAAQAAAD+/wAAAAAHAAQAAAD//wAAAAAHAAQAAAAAAAAAAAAHAAQAAAABAAAAAAAHAAQAAAACAAAAAAAIAAQAAAD9/wEAAAAGAAUAAAD9/wIAAAAGAAUAAAD9/wMAAAAGAAUAAAD9/wQAAAAGAAUAAAD9/wUAAAAGAAYAAAD+/wUAAAAHAAYAAAD//wUAAAAHAAYAAAAAAAUAAAAHAAYAAAABAAUAAAAHAAYAAAACAAUAAAAIAAYAAAACAAQAAAAIAAUAAAACAAMAAAAIAAUAAAACAAIAAAAIAAUAAAACAAEAAAAIAAUAAAABAAQAAAAHAAUAAAAAAAQAAAAHAAUAAAD//wQAAAAHAAUAAAD+/wQAAAAHAAUAAAD+/wMAAAAHAAUAAAD//wMAAAAHAAUAAAAAAAMAAAAHAAUAAAABAAMAAAAHAAUAAAABAAIAAAAHAAUAAAAAAAIAAAAHAAUAAAD//wIAAAAHAAUAAAD+/wIAAAAHAAUAAAD+/wEAAAAHAAUAAAD//wEAAAAHAAUAAAAAAAEAAAAHAAUAAAABAAEAAAAHAAUAAAAFAAAAAAAMAAAAAAAGAAAAAAANAAAAAAAHAAAAAAAOAAAAAAA=")
+tile_set = ExtResource("1_cq563")
+
+[node name="Flag" parent="." unique_id=2103653490 instance=ExtResource("2_f43gv")]
+position = Vector2(104, 0)
+
+[node name="Player" parent="." unique_id=2077856055 instance=ExtResource("3_5mk3f")]
+position = Vector2(-2, -18)
+scale = Vector2(1, 1)

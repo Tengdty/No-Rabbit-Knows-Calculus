@@ -1,0 +1,18 @@
+[gd_scene format=4 uid="uid://bmxbv53idex6q"]
+
+[ext_resource type="TileSet" uid="uid://dsupxawg7qa0i" path="res://assets/new_tile_set.tres" id="1_2pmbh"]
+[ext_resource type="PackedScene" uid="uid://ewbe3gmkevfn" path="res://scenes/player.tscn" id="2_15qrj"]
+[ext_resource type="PackedScene" uid="uid://bl48eka2irjs" path="res://scenes/flag.tscn" id="3_knore"]
+
+[node name="thefirstworld_level_2" type="Node2D" unique_id=596118777]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1479347263]
+tile_map_data = PackedByteArray("AAD7/wAAAAASAAUAAAD8/wAAAAASAAUAAAD9/wAAAAASAAUAAAD+/wAAAAASAAUAAAD//wAAAAASAAUAAAAAAAAAAAASAAUAAAABAAAAAAASAAUAAAACAAAAAAASAAUAAAADAAAAAAASAAUAAAAEAAAAAAASAAUAAAAFAAAAAAASAAUAAAAGAAAAAAASAAUAAAAHAAAAAAASAAUAAAD2/wAAAAASAAUAAAD3/wAAAAASAAUAAAD4/wAAAAASAAUAAAD5/wAAAAASAAUAAAD6/wAAAAASAAUAAAAIAAAAAAASAAUAAAA=")
+tile_set = ExtResource("1_2pmbh")
+
+[node name="Player" parent="." unique_id=2077856055 instance=ExtResource("2_15qrj")]
+position = Vector2(0, -20)
+scale = Vector2(1, 1)
+
+[node name="Flag" parent="." unique_id=2103653490 instance=ExtResource("3_knore")]
+position = Vector2(128, 0)
