@@ -115,4 +115,4 @@ position = Vector2(26, 0)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_i3pqv")
 
-[node name="tempCamera(ReplaceThis)" type="Camera2D" parent="." unique_id=1796472662]
+[node name="2DCamera" type="Camera2D" parent="." unique_id=1796472662]

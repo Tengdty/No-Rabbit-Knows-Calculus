@@ -11,16 +11,17 @@ config_version=5
 [application]
 
 config/name="No Rabbit Knows Calculus"
+run/main_scene="uid://cq0ficeuk2gu6"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
-
-[autoload]
-
-GameManager="*uid://dfavxyxl1uimn"
 
 [audio]
 
 buses/default_bus_layout="uid://byrvouufdydq5"
+
+[autoload]
+
+GameManager="*uid://dfavxyxl1uimn"
 
 [display]
 
