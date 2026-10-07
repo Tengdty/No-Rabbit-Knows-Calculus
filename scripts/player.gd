@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const SETTINGS_SCENE = preload("res://assets/ui-elements/settings.tscn")
 
 # the rotation amount the arrow change
 var arrowSpeed: float = -75
@@ -17,22 +18,27 @@ func _physics_process(delta: float) -> void:
 	
 	# TODO change animation to walking when velocity > 0
 	
+	# saving this variable since its reused
+	var onFloor: bool = is_on_floor()
+	# declare the input direction and handle the movement/deceleration.
+	var direction: float
+	
 	# Add the gravity.
-	if not is_on_floor():
+	if not onFloor:
 		velocity += get_gravity() * delta
+	else:
+		direction = Input.get_axis("move_left", "move_right")
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and onFloor:
 		#velocity.y = JUMP_VELOCITY
 		jump()
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED/100)
+	elif onFloor:
+		# this is essentially friction to your horizontal speed.
+		velocity.x = move_toward(velocity.x, 0, SPEED/3)
 
 	move_and_slide()
 	
@@ -52,6 +58,19 @@ func _process(delta: float) -> void:
 
 # jump in the direction of the arrow
 func jump():
+	#TODO make sprite face the jump direction
 	var jumpDir: Vector2 = (arrowSprite.global_position - global_position).normalized()
 	velocity.y = jumpDir.y * jumpPower
 	velocity.x = jumpDir.x * jumpPower
+
+
+func _on_button_pressed() -> void:
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.layer = 10
+	add_child(canvas_layer)
+	
+	var settings = SETTINGS_SCENE.instantiate()
+	canvas_layer.add_child(settings)
+	get_tree().paused = true
+	
+	print("SUCCESSFUL PRESS")
