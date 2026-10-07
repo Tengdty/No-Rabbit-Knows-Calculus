@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://co0d5jdhcs1to"]
+
+[ext_resource type="Texture2D" uid="uid://dx05d7yvanodq" path="res://assets/ui-elements/bg.jpg" id="1_ots34"]
+[ext_resource type="Script" uid="uid://47jvkikf8cl1" path="res://scripts/start.gd" id="1_y5hus"]
+[ext_resource type="FontFile" uid="uid://de4l0f7c3yvva" path="res://assets/ui-elements/SuperPixel-m2L8j.ttf" id="2_1n0d2"]
+[ext_resource type="FontFile" uid="uid://d2e40bv4qk5ah" path="res://assets/ui-elements/BlockCraft.otf" id="3_y5hus"]
+[ext_resource type="AudioStream" uid="uid://du6nib2f6ds2o" path="res://assets/audio/music/title_screen.mp3" id="5_oiuna"]
+
+[node name="Control" type="Control" unique_id=186622701]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y5hus")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1355191708]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_ots34")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect" unique_id=112389791]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.45882353)
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=956831974]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -477.0
+offset_top = 51.0
+offset_right = 477.0
+offset_bottom = 226.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 1, 1, 0.9490196)
+theme_override_fonts/normal_font = ExtResource("2_1n0d2")
+theme_override_font_sizes/normal_font_size = 75
+bbcode_enabled = true
+text = "No Rabbit Knows Calculus"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Press to Play" type="RichTextLabel" parent="." unique_id=322918065]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -434.5
+offset_top = -163.0
+offset_right = 434.5
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_y5hus")
+theme_override_font_sizes/normal_font_size = 51
+bbcode_enabled = true
+text = "[pulse]----- Press to Start -----[/pulse]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="The actual play button" type="Button" parent="Press to Play" unique_id=2110891609]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1596796188]
+stream = ExtResource("5_oiuna")
+autoplay = true

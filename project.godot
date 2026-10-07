@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="No Rabbit Knows Calculus"
-run/main_scene="uid://cq0ficeuk2gu6"
+run/main_scene="uid://co0d5jdhcs1to"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
