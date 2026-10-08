@@ -13,7 +13,7 @@ const JUMP_VELOCITY = -400.0
 const SETTINGS_SCENE = preload("res://assets/ui-elements/settings.tscn")
 
 # the rotation amount the arrow change
-var arrowSpeed: float = -75
+var arrowSpeed: float = -150
 var jumpPower: float = 700.0
 
 func _physics_process(delta: float) -> void:
