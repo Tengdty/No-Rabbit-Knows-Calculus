@@ -1,16 +1,17 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-# jump arrow variables
 @onready var arrowRoot: Node2D = $jumparrowroot
 @onready var arrowSprite: Sprite2D = $jumparrowroot/arrow
 
 var charge_time: float = 0.0
-const MIN_JUMP_POWER = 400.0
-const MAX_JUMP_POWER = 600.0
-const MAX_CHARGE_TIME = 2.0
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-const SETTINGS_SCENE = preload("res://assets/ui-elements/settings.tscn")
+var isJumping: bool = false
+const SPEED_PEN: float = 0.05
+const MIN_JUMP_POWER: float = 400.0
+const MAX_JUMP_POWER: float = 600.0
+const MAX_CHARGE_TIME: float = 2.0
+const SPEED: float = 300.0
+const JUMP_VELOCITY: float = -400.0
+const SETTINGS_SCENE: Resource = preload("res://assets/ui-elements/settings.tscn")
 
 # the rotation amount the arrow change
 var arrowSpeed: float = -150
@@ -28,17 +29,20 @@ func _physics_process(delta: float) -> void:
 		# Only check for left/right input if we are on the ground
 		direction = Input.get_axis("move_left", "move_right")
 		
-		if direction:
+		if direction and not isJumping:
 			velocity.x = direction * SPEED
+		elif direction and isJumping:
+			velocity.x = direction * SPEED * SPEED_PEN
 		else:
 			# this is essentially friction to your horizontal speed.
 			velocity.x = move_toward(velocity.x, 0, SPEED/3)
 
 		# Change direction the sprite is facing (Only update while walking)
-		if direction > 0.0:
-			animated_sprite_2d.flip_h = false
-		elif direction < 0.0:
-			animated_sprite_2d.flip_h = true
+		if not isJumping:
+			if direction > 0.0:
+				animated_sprite_2d.flip_h = false
+			elif direction < 0.0:
+				animated_sprite_2d.flip_h = true
 
 	move_and_slide()
 
@@ -46,7 +50,7 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("jump") and is_on_floor():
 		charge_time += delta
-		
+		isJumping = true
 		# Update animation based on how long the button is held
 		if charge_time > 2.0:
 			animated_sprite_2d.play("charge_3")
@@ -58,8 +62,9 @@ func _process(delta: float) -> void:
 		# Trigger the actual jump
 		animated_sprite_2d.play("jump")
 		jump()
+		isJumping = false
+		arrowRoot.visible = false
 		charge_time = 0.0 # Reset for the next jump
-		
 	else:
 		# Handle standard grounded animations when not charging/jumping
 		if is_on_floor():
@@ -67,15 +72,17 @@ func _process(delta: float) -> void:
 				animated_sprite_2d.play("idle")
 			else:
 				pass #animated_sprite_2d.play("walk")
-		
-	arrowRoot.global_rotation_degrees += arrowSpeed * delta
 	
-	# reverse the direction of rotation.
-	if arrowRoot.global_rotation_degrees <= -170 or arrowRoot.global_rotation_degrees >= -10:
-		arrowSpeed *= -1
+	if isJumping:
+		arrowRoot.visible = true
+		var val = arrowSpeed * delta
+		if Input.is_action_pressed("turn_left") and not arrowRoot.global_rotation_degrees - val <= -170 :
+			arrowRoot.global_rotation_degrees += val
+		elif Input.is_action_pressed("turn_right") and not arrowRoot.global_rotation_degrees + val >= -10:
+			arrowRoot.global_rotation_degrees -= val
 
 # jump in the direction of the arrow
-func jump():
+func jump() -> void:
 	# Calculate the power based on charge time
 	var charge_percent = clamp(charge_time / MAX_CHARGE_TIME, 0.0, 1.0)
 	

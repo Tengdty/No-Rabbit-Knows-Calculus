@@ -86,6 +86,7 @@ position = Vector2(0.49999952, 3.3333335)
 shape = SubResource("RectangleShape2D_yhc0r")
 
 [node name="jumparrowroot" type="Node2D" parent="." unique_id=1378515879]
+visible = false
 rotation = -0.17453292
 
 [node name="arrow" type="Sprite2D" parent="jumparrowroot" unique_id=630976028]
