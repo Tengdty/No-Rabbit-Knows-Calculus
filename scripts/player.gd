@@ -2,13 +2,14 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var arrowRoot: Node2D = $jumparrowroot
 @onready var arrowSprite: Sprite2D = $jumparrowroot/arrow
+@onready var playerStats: PlayerStats = $PlayerStats
 
 var charge_time: float = 0.0
 var isJumping: bool = false
 const SPEED_PEN: float = 0.05
-const MIN_JUMP_POWER: float = 400.0
-const MAX_JUMP_POWER: float = 600.0
-const MAX_CHARGE_TIME: float = 2.0
+var MIN_JUMP_POWER: float = 400.0
+var MAX_JUMP_POWER: float = 600.0
+var MAX_CHARGE_TIME: float = 2
 const SPEED: float = 300.0
 const JUMP_VELOCITY: float = -400.0
 const SETTINGS_SCENE: Resource = preload("res://assets/ui-elements/settings.tscn")
@@ -16,6 +17,13 @@ const SETTINGS_SCENE: Resource = preload("res://assets/ui-elements/settings.tscn
 # the rotation amount the arrow change
 var arrowSpeed: float = -150
 var jumpPower: float = 700.0
+
+# initalize all stats using PlayerStats
+func _ready() -> void:
+	MAX_CHARGE_TIME = playerStats.get_stat(&"max_charge_time")
+	MIN_JUMP_POWER = playerStats.get_stat(&"min_jump_power")
+	MAX_JUMP_POWER = playerStats.get_stat(&"max_jump_power")
+	
 
 func _physics_process(delta: float) -> void:
 	# saving this variable since its reused

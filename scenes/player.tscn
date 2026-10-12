@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b1mk46qp3mw4i" path="res://scripts/player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://ktoqmrsijun5" path="res://assets/sprites/images/Bunny/bunny_spritesheet.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://bygss3hu418rb" path="res://assets/sprites/images/Arrow/arrow.png" id="3_i3pqv"]
+[ext_resource type="Script" uid="uid://ci174fidmdkow" path="res://scripts/player_stats.gd" id="4_dqkch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_qhqgy")
@@ -96,3 +97,7 @@ texture = ExtResource("3_i3pqv")
 
 [node name="2DCamera" type="Camera2D" parent="." unique_id=1796472662]
 zoom = Vector2(1.5, 1.5)
+
+[node name="PlayerStats" type="Node" parent="." unique_id=915149405]
+script = ExtResource("4_dqkch")
+metadata/_custom_type_script = "uid://ci174fidmdkow"
