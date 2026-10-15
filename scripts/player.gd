@@ -9,7 +9,7 @@ const SPEED_PEN: float = 0.05
 const MIN_JUMP_POWER: float = 400.0
 const MAX_JUMP_POWER: float = 600.0
 const MAX_CHARGE_TIME: float = 2.0
-const SPEED: float = 300.0
+const SPEED: float = 200.0
 const JUMP_VELOCITY: float = -400.0
 const SETTINGS_SCENE: Resource = preload("res://assets/ui-elements/settings.tscn")
 
@@ -71,7 +71,9 @@ func _process(delta: float) -> void:
 			if velocity.x == 0:
 				animated_sprite_2d.play("idle")
 			else:
-				pass #animated_sprite_2d.play("walk")
+				animated_sprite_2d.play("walk")
+		else:
+			animated_sprite_2d.play("falling")
 	
 	if isJumping:
 		arrowRoot.visible = true
@@ -106,5 +108,3 @@ func _on_button_pressed() -> void:
 	var settings = SETTINGS_SCENE.instantiate()
 	canvas_layer.add_child(settings)
 	get_tree().paused = true
-
-	null
