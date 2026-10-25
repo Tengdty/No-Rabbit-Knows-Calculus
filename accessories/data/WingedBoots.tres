@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AccessoryData" format=3 uid="uid://cct2mk4dw8b"]
+
+[ext_resource type="Script" uid="uid://cpnd3rl8y5kkg" path="res://scripts/accessory.gd" id="1_uoy2v"]
+
+[resource]
+script = ExtResource("1_uoy2v")
+item_name = "Winged Boots"
+description = "Why do they have wings? +50% horizontal movement speed"
+accessory_stats = Dictionary[StringName, float]({
+&"speed": 300.0,
+&"speed_pen": -0.02
+})
+metadata/_custom_type_script = "uid://cpnd3rl8y5kkg"

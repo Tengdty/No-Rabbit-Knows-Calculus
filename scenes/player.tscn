@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ktoqmrsijun5" path="res://assets/sprites/images/Bunny/bunny_spritesheet.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://bygss3hu418rb" path="res://assets/sprites/images/Arrow/arrow.png" id="3_i3pqv"]
 [ext_resource type="Script" uid="uid://ci174fidmdkow" path="res://scripts/player_stats.gd" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://cbicx527jc2hq" path="res://scripts/equipment_manager.gd" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_qhqgy")
@@ -101,3 +102,8 @@ zoom = Vector2(1.5, 1.5)
 [node name="PlayerStats" type="Node" parent="." unique_id=915149405]
 script = ExtResource("4_dqkch")
 metadata/_custom_type_script = "uid://ci174fidmdkow"
+
+[node name="EquipmentManager" type="Node" parent="." unique_id=1118892827 node_paths=PackedStringArray("player_stats")]
+script = ExtResource("5_qlg0r")
+player_stats = NodePath("../PlayerStats")
+metadata/_custom_type_script = "uid://cbicx527jc2hq"

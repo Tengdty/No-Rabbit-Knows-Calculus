@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AccessoryData" format=3 uid="uid://b1vw4m46g5w7s"]
+
+[ext_resource type="Script" uid="uid://cpnd3rl8y5kkg" path="res://scripts/accessory.gd" id="1_ne037"]
+
+[resource]
+script = ExtResource("1_ne037")
+item_name = "Particularly Interesting Rat"
+description = "Wait? Whats this? A Rat? I knew a rat once. In a rubber room of sorts. (0.7x jump power)"
+accessory_stats = Dictionary[StringName, float]({
+&"max_jump_power": -180.0,
+&"min_jump_power": -120.0
+})
+metadata/_custom_type_script = "uid://cpnd3rl8y5kkg"

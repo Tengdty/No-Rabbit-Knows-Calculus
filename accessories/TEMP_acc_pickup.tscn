@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://m7jguvo1l0sd"]
+
+[ext_resource type="Script" uid="uid://d2bdc3b5jb0ww" path="res://accessories/accessory_pick_up.gd" id="1_dwnt5"]
+[ext_resource type="Texture2D" uid="uid://lg3ok1qk08rr" path="res://accessories/testinggear.png" id="1_upyl7"]
+[ext_resource type="Resource" uid="uid://bkurj3rodhbbw" path="res://accessories/data/DogPawMedicine.tres" id="2_s0lxk"]
+[ext_resource type="Resource" uid="uid://cct2mk4dw8b" path="res://accessories/data/WingedBoots.tres" id="3_vhbma"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_upyl7"]
+radius = 13.0
+
+[node name="TempAccPickup" type="Node2D" unique_id=3163642]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1149673556]
+collision_mask = 2
+script = ExtResource("1_dwnt5")
+accessory1 = ExtResource("2_s0lxk")
+accessory2 = ExtResource("3_vhbma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1262661286]
+shape = SubResource("CircleShape2D_upyl7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1039697617]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_upyl7")
