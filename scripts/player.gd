@@ -1,9 +1,51 @@
+## The class mostly relating to player movement and control
+class_name Player
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var arrowRoot: Node2D = $jumparrowroot
 @onready var arrowSprite: Sprite2D = $jumparrowroot/arrow
+@onready var playerStats: PlayerStats = $PlayerStats
+@onready var equipment_manager: EquipmentManager = $EquipmentManager
+
+## Used in on_land() in AccessoryAbility
+var was_on_floor: bool = false
+
+var charge_time: float = 0.0
+var isJumping: bool = false
+
+var speed_pen: float = 0.05
+var min_jump_power: float = 400.0
+var max_jump_power: float = 600.0
+var max_charge_time: float = 2
+var speed: float = 300.0
+
+const JUMP_VELOCITY: float = -400.0
+const SETTINGS_SCENE: Resource = preload("res://assets/ui-elements/settings.tscn")
+
+# the rotation amount the arrow change
+var arrow_speed: float = -150
+var jumpPower: float = 700.0
+
+## set stats from playerStats
+func setStats() -> void:
+	speed_pen = 		playerStats.get_stat(&"speed_pen")
+	min_jump_power = 	playerStats.get_stat(&"min_jump_power")
+	max_jump_power = 	playerStats.get_stat(&"max_jump_power")
+	max_charge_time = 	playerStats.get_stat(&"max_charge_time")
+	speed = 			playerStats.get_stat(&"speed")
+	arrow_speed = 		playerStats.get_stat(&"arrow_speed")
+
+# initalize all stats using PlayerStats
+func _ready() -> void:
+	setStats()
+	
+	# holy roblox knowledge coming in clutch here.
+	playerStats.stats_changed.connect(func():
+		setStats()
+		print("player stats changed, :eyes:")
+		)
 @onready var jump_sound: AudioStreamPlayer = $JumpSound
 @onready var walk_sound: AudioStreamPlayer = $WalkSound
 
@@ -26,6 +68,10 @@ func play_footstep() -> void:
 func _physics_process(delta: float) -> void:
 	var direction: float = 0.0
 	
+	# runs on the frame that the player lands
+	if not was_on_floor and onFloor:
+		equipment_manager.on_land()
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -34,12 +80,12 @@ func _physics_process(delta: float) -> void:
 		direction = Input.get_axis("move_left", "move_right")
 		
 		if direction and not isJumping:
-			velocity.x = direction * SPEED
+			velocity.x = direction * speed
 		elif direction and isJumping:
-			velocity.x = direction * SPEED * SPEED_PEN
+			velocity.x = direction * speed * speed_pen
 		else:
 			# this is essentially friction to your horizontal speed.
-			velocity.x = move_toward(velocity.x, 0, SPEED/3)
+			velocity.x = move_toward(velocity.x, 0, speed/3)
 
 		# Change direction the sprite is facing (Only update while walking)
 		if not isJumping:
@@ -49,6 +95,8 @@ func _physics_process(delta: float) -> void:
 				animated_sprite_2d.flip_h = true
 
 	move_and_slide()
+	
+	was_on_floor = is_on_floor()
 
 # processed every frame or smth
 func _process(delta: float) -> void:
@@ -102,11 +150,13 @@ func _process(delta: float) -> void:
 # jump in the direction of the arrow
 func jump() -> void:
 	# Calculate the power based on charge time
-	var charge_percent = clamp(charge_time / MAX_CHARGE_TIME, 0.0, 1.0)
+	var charge_percent = clamp(charge_time / max_charge_time, 0.0, 1.0)
 	
-	var power = abs(lerp(MIN_JUMP_POWER, MAX_JUMP_POWER, charge_percent))
+	var power = abs(lerp(min_jump_power, max_jump_power, charge_percent))
 
 	var jumpDir: Vector2 = (arrowSprite.global_position - global_position).normalized()
+	
+	equipment_manager.on_jump(charge_percent, jumpDir)
 	
 	velocity = jumpDir * power
 	

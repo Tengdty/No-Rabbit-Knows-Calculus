@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AccessoryData" format=3 uid="uid://bkurj3rodhbbw"]
+
+[ext_resource type="Script" uid="uid://cpnd3rl8y5kkg" path="res://scripts/accessory.gd" id="1_jj708"]
+
+[resource]
+script = ExtResource("1_jj708")
+item_name = "Dog Paw Medicine"
+description = "Strong ahh grip. +30% stronger wall jumps"
+accessory_stats = Dictionary[StringName, float]({
+&"max_jump_power": 300.0
+})
+metadata/_custom_type_script = "uid://cpnd3rl8y5kkg"

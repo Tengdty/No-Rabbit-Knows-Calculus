@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b0yrpe3dpgth6"]
+
+[ext_resource type="Script" uid="uid://60l1igvkgti5" path="res://accessories/abilities/glideability.gd" id="1_5jv15"]
+
+[node name="Glideability" type="Node2D" unique_id=1187034006]
+script = ExtResource("1_5jv15")

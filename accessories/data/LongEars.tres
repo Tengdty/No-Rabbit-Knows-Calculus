@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AccessoryData" format=3 uid="uid://tpgws30qygt1"]
+
+[ext_resource type="Script" uid="uid://cpnd3rl8y5kkg" path="res://scripts/accessory.gd" id="1_r37xt"]
+
+[resource]
+script = ExtResource("1_r37xt")
+item_name = "Rabbit Ears Headband"
+description = "Don't you already have ears though? +Glide for 1 second after jumping"
+accessory_stats = Dictionary[StringName, float]({
+&"max_charge_time": -1.0,
+&"max_jump_power": 50.0,
+&"min_jump_power": 50.0
+})
+metadata/_custom_type_script = "uid://cpnd3rl8y5kkg"
