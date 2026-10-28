@@ -102,6 +102,12 @@ func remove_abilities(slot: int) -> void:
 # following are called dispatch functions supposedly.
 # just allows for compiler support.
 	
+## called when space is initially pressed
+func on_start_jump() -> void:
+	for slot: int in active_abilities:
+		for ability: AccessoryAbility in active_abilities[slot]:
+			ability.on_start_jump()
+	
 ## when player jumps
 func on_jump(charge_percent: float, jumpDir: Vector2) -> void:
 	for slot: int in active_abilities:

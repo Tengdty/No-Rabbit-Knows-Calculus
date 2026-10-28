@@ -90,6 +90,8 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if is_on_floor():
 		if Input.is_action_pressed("jump"):
+			if charge_time == 0:
+				equipment_manager.on_start_jump()
 			charge_time += delta
 			isJumping = true
 			# Update animation based on how long the button is held
