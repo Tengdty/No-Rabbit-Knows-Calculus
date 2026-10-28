@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dxxqsg82oytvf"]
 
-[ext_resource type="TileSet" uid="uid://dsupxawg7qa0i" path="res://assets/new_tile_set.tres" id="1_dkld1"]
+[ext_resource type="TileSet" uid="uid://dsupxawg7qa0i" path="res://assets/tilesets/new_tile_set.tres" id="1_dkld1"]
 [ext_resource type="PackedScene" uid="uid://ewbe3gmkevfn" path="res://scenes/player.tscn" id="2_c4cvo"]
 
 [node name="testingEnd" type="Node2D" unique_id=2139544380]
