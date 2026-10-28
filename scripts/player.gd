@@ -1,3 +1,4 @@
+## The class mostly relating to player movement and control
 class_name Player
 extends CharacterBody2D
 
@@ -6,6 +7,9 @@ extends CharacterBody2D
 @onready var arrowSprite: Sprite2D = $jumparrowroot/arrow
 @onready var playerStats: PlayerStats = $PlayerStats
 @onready var equipment_manager: EquipmentManager = $EquipmentManager
+
+## Used in on_land() in AccessoryAbility
+var was_on_floor: bool = false
 
 var charge_time: float = 0.0
 var isJumping: bool = false
@@ -23,7 +27,7 @@ const SETTINGS_SCENE: Resource = preload("res://assets/ui-elements/settings.tscn
 var arrow_speed: float = -150
 var jumpPower: float = 700.0
 
-# set stats from playerStats
+## set stats from playerStats
 func setStats() -> void:
 	speed_pen = 		playerStats.get_stat(&"speed_pen")
 	min_jump_power = 	playerStats.get_stat(&"min_jump_power")
@@ -46,6 +50,10 @@ func _physics_process(delta: float) -> void:
 	# saving this variable since its reused
 	var onFloor: bool = is_on_floor()
 	var direction: float = 0.0
+	
+	# runs on the frame that the player lands
+	if not was_on_floor and onFloor:
+		equipment_manager.on_land()
 	
 	# Add the gravity.
 	if not onFloor:
@@ -70,6 +78,8 @@ func _physics_process(delta: float) -> void:
 				animated_sprite_2d.flip_h = true
 
 	move_and_slide()
+	
+	was_on_floor = is_on_floor()
 
 # processed every frame or smth
 func _process(delta: float) -> void:
@@ -114,6 +124,8 @@ func jump() -> void:
 	var power = abs(lerp(min_jump_power, max_jump_power, charge_percent))
 
 	var jumpDir: Vector2 = (arrowSprite.global_position - global_position).normalized()
+	
+	equipment_manager.on_jump(charge_percent, jumpDir)
 	
 	velocity = jumpDir * power
 	

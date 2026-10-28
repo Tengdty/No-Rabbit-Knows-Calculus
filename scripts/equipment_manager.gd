@@ -9,8 +9,11 @@ signal equipment_changed
 # TODO: implement ability_manager, add ability scenes, call ability methods within player.gd
 @export var ability_manager: Node 
 
+## abilities that are currently active
+var active_abilities: Dictionary = {}
+
 # its like you?? why did i write this
-# int (0, 1) because you can only wear 2 at a time.
+## int (0, 1) because you can only wear 2 at a time.
 var equipped: Dictionary[int, AccessoryData]
 
 ## equip an accessory
@@ -25,6 +28,9 @@ func equip(slot: int, accessory: AccessoryData) -> void:
 	
 	equipped[slot] = accessory
 	
+	# add abilities
+	add_abilities(slot, accessory)
+	
 	# refresh abilities and stats
 	recalculate_equipment_stats()
 	
@@ -36,6 +42,9 @@ func unequip(slot: int, shouldEmit: bool = true) -> int:
 		return 0
 		
 	equipped.erase(slot)
+	
+	# remove abilities as well
+	remove_abilities(slot)
 	
 	recalculate_equipment_stats()
 	
@@ -58,7 +67,57 @@ func recalculate_equipment_stats() -> void:
 	player_stats.setAccessoryStats(combined_bonuses)
 		
 		
-	
 ## returns null if no accessory equipped for that slot or slot doesn't exist
 func getEquipped(slot: int) -> AccessoryData:
 	return equipped.get(slot, null)
+
+# accessory functions
+## add an accessory's ability/abilities to the active_abilities dictionary
+func add_abilities(slot: int, accessory: AccessoryData) -> void:
+	
+	# every key in the dictionary points to an array of AccessoryAbility
+	active_abilities[slot] = []
+	
+	for scene: PackedScene in accessory.abilities:
+		print("added new ability")
+		var ability: AccessoryAbility = scene.instantiate()
+		# not sure if this works since it returns a Node.
+		ability.player = get_parent()
+		add_child(ability)
+		ability.on_equip()
+		active_abilities[slot].append(ability)
+	
+## remove all abilties associated with a slot	
+func remove_abilities(slot: int) -> void:
+	if not active_abilities.has(slot):
+		push_warning("active_abilities does not have slot", slot)
+		return
+		
+	for ability: AccessoryAbility in active_abilities[slot]:
+		ability.on_unequip()
+		# lowk not sure if on_unequip will work before its deleted
+		# depends on how long queue takes
+		ability.queue_free()
+		
+	active_abilities.erase(slot)
+
+# following are called dispatch functions supposedly.
+# just allows for compiler support.
+	
+## when player jumps
+func on_jump(charge_percent: float, jumpDir: Vector2) -> void:
+	for slot: int in active_abilities:
+		for ability: AccessoryAbility in active_abilities[slot]:
+			ability.on_jump(charge_percent, jumpDir)
+	
+## when landing
+func on_land() -> void:
+	for slot: int in active_abilities:
+		for ability: AccessoryAbility in active_abilities[slot]:
+			ability.on_land()
+	
+## when walking (direction != 0)
+func on_walk(dir: float) -> void:
+	for slot: int in active_abilities:
+		for ability: AccessoryAbility in active_abilities[slot]:
+			ability.on_walk(dir)
