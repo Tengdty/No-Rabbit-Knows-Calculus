@@ -6,8 +6,6 @@ extends Node
 signal equipment_changed
 
 @export var player_stats: PlayerStats
-# TODO: implement ability_manager, add ability scenes, call ability methods within player.gd
-@export var ability_manager: Node 
 
 ## abilities that are currently active
 var active_abilities: Dictionary = {}

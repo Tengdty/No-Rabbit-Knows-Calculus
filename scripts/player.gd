@@ -2,6 +2,9 @@
 class_name Player
 extends CharacterBody2D
 
+@onready var jump_sound: AudioStreamPlayer = $JumpSound
+@onready var walk_sound: AudioStreamPlayer = $WalkSound
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var arrowRoot: Node2D = $jumparrowroot
@@ -46,21 +49,6 @@ func _ready() -> void:
 		setStats()
 		print("player stats changed, :eyes:")
 		)
-@onready var jump_sound: AudioStreamPlayer = $JumpSound
-@onready var walk_sound: AudioStreamPlayer = $WalkSound
-
-var charge_time: float = 0.0
-var isJumping: bool = false
-const SPEED_PEN: float = 0.05
-const MIN_JUMP_POWER: float = 400.0
-const MAX_JUMP_POWER: float = 600.0
-const MAX_CHARGE_TIME: float = 2.0
-const SPEED: float = 200.0
-const JUMP_VELOCITY: float = -400.0
-const SETTINGS_SCENE: Resource = preload("res://assets/ui-elements/settings.tscn")
-
-var arrowSpeed: float = -150
-var jumpPower: float = 700.0
 
 func play_footstep() -> void:
 	walk_sound.play()
@@ -69,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	var direction: float = 0.0
 	
 	# runs on the frame that the player lands
-	if not was_on_floor and onFloor:
+	if not was_on_floor and is_on_floor():
 		equipment_manager.on_land()
 	
 	# Add the gravity.
@@ -141,7 +129,7 @@ func _process(delta: float) -> void:
 	
 	if isJumping:
 		arrowRoot.visible = true
-		var val = arrowSpeed * delta
+		var val = arrow_speed * delta
 		if Input.is_action_pressed("turn_left") and not arrowRoot.global_rotation_degrees <= -170 :
 			arrowRoot.global_rotation_degrees += val
 		elif Input.is_action_pressed("turn_right") and not arrowRoot.global_rotation_degrees >= -10:
