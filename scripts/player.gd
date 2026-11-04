@@ -25,7 +25,9 @@ var max_charge_time: float = 2
 var speed: float = 300.0
 
 const JUMP_VELOCITY: float = -400.0
+const BURROW_DELAY: float = 0.6
 const SETTINGS_SCENE: Resource = preload("res://assets/ui-elements/settings.tscn")
+const SELECTOR_FP: String = "res://scenes/worlds/burrow.tscn"
 
 # the rotation amount the arrow change
 var arrow_speed: float = -150
@@ -108,6 +110,8 @@ func _process(delta: float) -> void:
 			isJumping = false
 			arrowRoot.visible = false
 			charge_time = 0.0 # Reset for the next jump
+		elif Input.is_action_just_released("burrow") and get_tree().current_scene.scene_file_path != SELECTOR_FP:
+			burrow()
 		else:
 			isJumping = false
 			charge_time = 0.0
@@ -136,6 +140,10 @@ func _process(delta: float) -> void:
 			arrowRoot.global_rotation_degrees += val
 		elif Input.is_action_pressed("turn_right") and not arrowRoot.global_rotation_degrees >= -10:
 			arrowRoot.global_rotation_degrees -= val
+
+func burrow() -> void:
+	await get_tree().create_timer(BURROW_DELAY).timeout
+	get_tree().change_scene_to_file("res://scenes/worlds/burrow.tscn")
 
 # jump in the direction of the arrow
 func jump() -> void:

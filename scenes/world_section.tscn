@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cb4elal0q3b2o"]
+
+[ext_resource type="Texture2D" uid="uid://bccuyoivr7awm" path="res://icon.svg" id="1_al45o"]
+
+[node name="WorldSection" type="Node2D" unique_id=115941952]
+
+[node name="WorldImage" type="Sprite2D" parent="." unique_id=981586935]
+position = Vector2(0, -170)
+texture = ExtResource("1_al45o")
+
+[node name="Tunnels" type="Node2D" parent="." unique_id=564304260]

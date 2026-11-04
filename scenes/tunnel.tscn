@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://diqkw5xn4hqta"]
+
+[ext_resource type="Script" uid="uid://ctmt4ituog734" path="res://scripts/tunnel.gd" id="1_sitcv"]
+[ext_resource type="Texture2D" uid="uid://bccuyoivr7awm" path="res://icon.svg" id="1_yxtfq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jhai"]
+size = Vector2(56, 56)
+
+[node name="Tunnel" type="Area2D" unique_id=931897780]
+collision_mask = 2
+script = ExtResource("1_sitcv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1767453114]
+position = Vector2(0, -33)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_yxtfq")
+
+[node name="Prompt" type="Label" parent="." unique_id=38371704]
+offset_left = -5.0
+offset_top = -91.0
+offset_right = 5.0
+offset_bottom = -68.0
+text = "F"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=829745804]
+position = Vector2(0, -29)
+shape = SubResource("RectangleShape2D_6jhai")
