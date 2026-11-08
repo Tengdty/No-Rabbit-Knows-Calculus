@@ -26,7 +26,6 @@ var speed: float = 300.0
 
 const JUMP_VELOCITY: float = -400.0
 const BURROW_DELAY: float = 0.6
-const SETTINGS_SCENE: Resource = preload("res://assets/ui-elements/settings.tscn")
 const SELECTOR_FP: String = "res://scenes/worlds/burrow.tscn"
 
 # the rotation amount the arrow change
@@ -41,6 +40,7 @@ func setStats() -> void:
 	max_charge_time = 	playerStats.get_stat(&"max_charge_time")
 	speed = 			playerStats.get_stat(&"speed")
 	arrow_speed = 		playerStats.get_stat(&"arrow_speed")
+	
 
 # initalize all stats using PlayerStats
 func _ready() -> void:
@@ -164,12 +164,3 @@ func jump() -> void:
 		animated_sprite_2d.flip_h = false # Facing Right
 	elif jumpDir.x < 0:
 		animated_sprite_2d.flip_h = true  # Facing Left
-
-func _on_button_pressed() -> void:
-	var canvas_layer = CanvasLayer.new()
-	canvas_layer.layer = 10
-	add_child(canvas_layer)
-
-	var settings = SETTINGS_SCENE.instantiate()
-	canvas_layer.add_child(settings)
-	get_tree().paused = true

@@ -1,54 +1,175 @@
 [gd_scene format=3 uid="uid://c1f0ielj4oyfg"]
 
 [ext_resource type="Script" uid="uid://bxyrcpakvqc11" path="res://assets/ui-elements/settings.gd" id="1_1sbfk"]
-[ext_resource type="Texture2D" uid="uid://dcvbjijn27qkr" path="res://assets/sprites/images/close/xout.png" id="2_71ioi"]
+[ext_resource type="FontFile" uid="uid://d2e40bv4qk5ah" path="res://assets/ui-elements/BlockCraft.otf" id="2_3xa0j"]
+[ext_resource type="FontFile" uid="uid://de4l0f7c3yvva" path="res://assets/ui-elements/SuperPixel-m2L8j.ttf" id="2_71ioi"]
+[ext_resource type="Script" uid="uid://bk2ael1wdsimd" path="res://scripts/volume_slider.gd" id="2_k0ban"]
+[ext_resource type="Texture2D" uid="uid://dpr3171jvg0uo" path="res://assets/ui-elements/carrot.png" id="4_ncm63"]
+
+[sub_resource type="Theme" id="Theme_71ioi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_seu7j"]
+bg_color = Color(0.47843137, 0.3372549, 0.2, 0.8862745)
+border_color = Color(0.62352943, 0.5176471, 0.37254903, 0.7647059)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_725uk"]
+bg_color = Color(0.65236235, 0.59054375, 0.4664957, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4nhbt"]
+bg_color = Color(0.23299345, 0.17375574, 0.12623328, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
 
 [node name="Settings" type="Control" unique_id=69489273]
-process_mode = 2
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_71ioi")
 script = ExtResource("1_1sbfk")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=248346372]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2058179806]
+layout_mode = 0
+offset_right = 1148.0
+offset_bottom = 644.0
+color = Color(0.11372549, 0.0627451, 0.023529412, 0.72156864)
+
+[node name="Panel" type="Panel" parent="ColorRect" unique_id=1226533340]
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -178.0
-offset_bottom = 168.0
+offset_left = -488.5
+offset_top = -270.5
+offset_right = 488.5
+offset_bottom = 270.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_seu7j")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=800866913]
-layout_mode = 2
+[node name="Volume" type="Control" parent="ColorRect/Panel" unique_id=1371243842]
+custom_minimum_size = Vector2(30, 160)
+anchors_preset = 0
+offset_left = 106.5
+offset_top = 169.5
+offset_right = 482.5
+offset_bottom = 489.5
+script = ExtResource("2_k0ban")
 
-[node name="Music" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=1212677522]
-layout_mode = 2
-max_value = 45.0
-step = 0.1
-value = 10.0
+[node name="RichTextLabel3" type="RichTextLabel" parent="ColorRect/Panel/Volume" unique_id=282346858]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 260.0
+offset_right = 373.0
+offset_bottom = 433.0
+grow_vertical = 2
+rotation = -1.5707964
+theme_override_fonts/normal_font = ExtResource("2_3xa0j")
+theme_override_fonts/bold_font = ExtResource("2_3xa0j")
+theme_override_font_sizes/normal_font_size = 200
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[b]Volume[/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
 
-[node name="Label" type="Label" parent="." unique_id=1838962490]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 111.0
-offset_right = 1161.0
-offset_bottom = 134.0
-text = "MUSIC:"
+[node name="bg" type="Panel" parent="ColorRect/Panel/Volume" unique_id=1495736245]
+custom_minimum_size = Vector2(30, 160)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_725uk")
 
-[node name="Button" type="Button" parent="." unique_id=436590520]
-layout_mode = 0
-offset_left = 1053.0
-offset_top = 14.0
-offset_right = 1139.0
-offset_bottom = 99.0
-icon = ExtResource("2_71ioi")
-expand_icon = true
+[node name="fill" type="Panel" parent="ColorRect/Panel/Volume/bg" unique_id=41792614]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4nhbt")
 
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/Music" to="." method="_on_music_value_changed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Button2" type="Button" parent="ColorRect/Panel" unique_id=1407627196]
+custom_maximum_size = Vector2(509, 173)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.52400005
+anchor_top = 0.71500003
+anchor_right = 0.52400005
+anchor_bottom = 0.71500003
+offset_left = 83.05194
+offset_top = -158.31503
+offset_right = 385.05194
+offset_bottom = -45.315033
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_3xa0j")
+theme_override_font_sizes/font_size = 76
+action_mode = 0
+text = "Restart"
+
+[node name="Button" type="Button" parent="ColorRect/Panel" unique_id=53828551]
+custom_maximum_size = Vector2(509, 173)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.52400005
+anchor_top = 0.71500003
+anchor_right = 0.52400005
+anchor_bottom = 0.71500003
+offset_left = 82.55194
+offset_top = -28.315033
+offset_right = 384.55194
+offset_bottom = 84.68497
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_3xa0j")
+theme_override_font_sizes/font_size = 76
+action_mode = 0
+text = "Resume"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/Panel" unique_id=1781505405]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -494.0
+offset_top = -3.5
+offset_right = 15.0
+offset_bottom = 169.5
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_71ioi")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[pulse]Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Carrot" type="Sprite2D" parent="." unique_id=551544787]
+position = Vector2(856, 159.99998)
+rotation = 1.5707964
+scale = Vector2(0.6569309, 0.8690634)
+texture = ExtResource("4_ncm63")
+
+[connection signal="pressed" from="ColorRect/Panel/Button" to="." method="_on_button_pressed"]
