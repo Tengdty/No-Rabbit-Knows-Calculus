@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AccessoryData" format=3 uid="uid://mg6f5k5ienk"]
+
+[ext_resource type="Script" uid="uid://cpnd3rl8y5kkg" path="res://scripts/accessory.gd" id="1_75yt7"]
+[ext_resource type="Texture2D" uid="uid://bhfapfkle7qwk" path="res://assets/sprites/images/AccessoryIcons/gradcap.png" id="2_a857e"]
+
+[resource]
+script = ExtResource("1_75yt7")
+item_name = "Graduation Cap"
+description = "A college remnant. I guess, you really DO know calculus after all, huh?"
+texture = ExtResource("2_a857e")
+accessory_stats = Dictionary[StringName, float]({
+&"max_charge_time": -1.0,
+&"max_jump_power": 125.0
+})
+metadata/_custom_type_script = "uid://cpnd3rl8y5kkg"

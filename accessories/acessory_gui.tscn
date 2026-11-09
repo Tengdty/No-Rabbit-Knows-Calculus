@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://kedhy7jjbm40"]
+
+[ext_resource type="Script" uid="uid://dhu4sjdj2q221" path="res://scripts/accessory_menu.gd" id="1_c8r4i"]
+[ext_resource type="Texture2D" uid="uid://lg3ok1qk08rr" path="res://accessories/testinggear.png" id="2_no7rk"]
+
+[node name="AcessoryGui" type="CanvasLayer" unique_id=2046907049]
+script = ExtResource("1_c8r4i")
+lockedIcon = ExtResource("2_no7rk")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1458264068]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1179087355]
+custom_minimum_size = Vector2(450, 600)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=367349503]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=913268638]
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+text = "accessory"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1752650886]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=174407770]
+layout_mode = 2
+size_flags_horizontal = 3
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button2" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=221883396]
+layout_mode = 2
+size_flags_horizontal = 3
+icon_alignment = 1
+expand_icon = true
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=182109430]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=263125286]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/icon_max_width = 100
+icon_alignment = 1
+
+[node name="Button2" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1259483030]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/icon_max_width = 100
+icon_alignment = 1
+
+[node name="Button3" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1975771305]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/icon_max_width = 100
+icon_alignment = 1
+
+[node name="Button4" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1478912932]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/icon_max_width = 100
+icon_alignment = 1
+
+[node name="Button5" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=528376477]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/icon_max_width = 100
+icon_alignment = 1
+
+[node name="Button6" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=948007403]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/icon_max_width = 100
+icon_alignment = 1
+
+[node name="Button7" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=388542054]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/icon_max_width = 100
+icon_alignment = 1
+
+[node name="Button8" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1928578083]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/icon_max_width = 100
+icon_alignment = 1
+
+[node name="Button9" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=812986657]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/icon_max_width = 100
+icon_alignment = 1

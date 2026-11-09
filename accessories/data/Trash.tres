@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AccessoryData" format=3 uid="uid://dmqihh1u35c4a"]
+
+[ext_resource type="Script" uid="uid://cpnd3rl8y5kkg" path="res://scripts/accessory.gd" id="1_h4mxg"]
+[ext_resource type="Texture2D" uid="uid://j0yo8h13l3p2" path="res://assets/sprites/images/AccessoryIcons/trash.png" id="2_b2ry3"]
+
+[resource]
+script = ExtResource("1_h4mxg")
+item_name = "Trash"
+description = "Makes you extremely weak"
+texture = ExtResource("2_b2ry3")
+accessory_stats = Dictionary[StringName, float]({
+&"max_charge_time": -1.0,
+&"max_jump_power": -200.0,
+&"min_jump_power": -200.0,
+&"speed": -200.0
+})
+metadata/_custom_type_script = "uid://cpnd3rl8y5kkg"

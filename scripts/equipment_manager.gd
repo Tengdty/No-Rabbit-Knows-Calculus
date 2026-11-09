@@ -14,6 +14,9 @@ var active_abilities: Dictionary = {}
 ## int (0, 1) because you can only wear 2 at a time.
 var equipped: Dictionary[int, AccessoryData]
 
+## unlocked accessories
+@export var unlocked_accessories: Dictionary[AccessoryData, bool]
+
 ## equip an accessory
 func equip(slot: int, accessory: AccessoryData) -> void:
 	
@@ -70,6 +73,24 @@ func getEquipped(slot: int) -> AccessoryData:
 	return equipped.get(slot, null)
 
 # accessory functions
+
+## return true if accessory is unlocked
+func is_unlocked(accessoryData: AccessoryData):
+	if accessoryData == null:
+		return false
+	if not unlocked_accessories.has(accessoryData):
+		push_warning(accessoryData,"accessory is not unlockable")
+		return false
+	return unlocked_accessories[accessoryData]
+
+func unlock_accessory(accessoryData: AccessoryData):
+	if accessoryData == null:
+		return
+	if not unlocked_accessories.has(accessoryData):
+		push_warning(accessoryData,"accessory is not valid to unlock")
+		return
+	unlocked_accessories[accessoryData] = true
+
 ## add an accessory's ability/abilities to the active_abilities dictionary
 func add_abilities(slot: int, accessory: AccessoryData) -> void:
 	

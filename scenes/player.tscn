@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1mk46qp3mw4i" path="res://scripts/player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://ktoqmrsijun5" path="res://assets/sprites/images/Bunny/bunny_spritesheet.png" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://kedhy7jjbm40" path="res://accessories/acessory_gui.tscn" id="2_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://bygss3hu418rb" path="res://assets/sprites/images/Arrow/arrow.png" id="3_i3pqv"]
 [ext_resource type="AudioStream" uid="uid://hbgmttgm370i" path="res://assets/audio/player/walk.wav" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://stnlgasb0jti" path="res://assets/audio/player/jump.wav" id="4_qlg0r"]
@@ -9,6 +10,13 @@
 [ext_resource type="Script" uid="uid://cbicx527jc2hq" path="res://scripts/equipment_manager.gd" id="5_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://cwvsh3hc7rsus" path="res://assets/audio/player/step_2.wav" id="6_smehm"]
 [ext_resource type="Script" uid="uid://ci174fidmdkow" path="res://scripts/player_stats.gd" id="9_ur7pv"]
+[ext_resource type="Script" uid="uid://cpnd3rl8y5kkg" path="res://scripts/accessory.gd" id="10_qfm1y"]
+[ext_resource type="Resource" uid="uid://bkurj3rodhbbw" path="res://accessories/data/DogPawMedicine.tres" id="11_fulsm"]
+[ext_resource type="Resource" uid="uid://tpgws30qygt1" path="res://accessories/data/LongEars.tres" id="12_4r5pv"]
+[ext_resource type="Resource" uid="uid://b1vw4m46g5w7s" path="res://accessories/data/ParticularlyInterestingRat.tres" id="13_60mlk"]
+[ext_resource type="Resource" uid="uid://cct2mk4dw8b" path="res://accessories/data/WingedBoots.tres" id="14_i4ail"]
+[ext_resource type="Resource" uid="uid://dmqihh1u35c4a" path="res://accessories/data/Trash.tres" id="15_a38lo"]
+[ext_resource type="Resource" uid="uid://cqgjg4yhhrqgt" path="res://accessories/data/Trash2.tres" id="16_4ni07"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_qhqgy")
@@ -397,6 +405,8 @@ scale = Vector2(3, 3)
 collision_layer = 2
 script = ExtResource("1_4flbx")
 
+[node name="AcessoryGui" parent="." unique_id=2046907049 instance=ExtResource("2_y4r1p")]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1771187284]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_oiuna")
@@ -433,6 +443,14 @@ stream = ExtResource("4_qlg0r")
 [node name="EquipmentManager" type="Node" parent="." unique_id=578148600 node_paths=PackedStringArray("player_stats")]
 script = ExtResource("5_qlg0r")
 player_stats = NodePath("../PlayerStats")
+unlocked_accessories = Dictionary[ExtResource("10_qfm1y"), bool]({
+ExtResource("11_fulsm"): true,
+ExtResource("12_4r5pv"): true,
+ExtResource("13_60mlk"): true,
+ExtResource("14_i4ail"): true,
+ExtResource("15_a38lo"): true,
+ExtResource("16_4ni07"): false
+})
 metadata/_custom_type_script = "uid://cbicx527jc2hq"
 
 [node name="PlayerStats" type="Node" parent="." unique_id=415760785]
