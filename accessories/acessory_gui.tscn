@@ -1,11 +1,9 @@
 [gd_scene format=3 uid="uid://kedhy7jjbm40"]
 
 [ext_resource type="Script" uid="uid://dhu4sjdj2q221" path="res://scripts/accessory_menu.gd" id="1_c8r4i"]
-[ext_resource type="Texture2D" uid="uid://lg3ok1qk08rr" path="res://accessories/testinggear.png" id="2_no7rk"]
 
 [node name="AcessoryGui" type="CanvasLayer" unique_id=2046907049]
 script = ExtResource("1_c8r4i")
-lockedIcon = ExtResource("2_no7rk")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1458264068]
 anchors_preset = 15
@@ -24,7 +22,7 @@ layout_mode = 2
 [node name="Label" type="RichTextLabel" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=913268638]
 custom_minimum_size = Vector2(80, 50)
 layout_mode = 2
-text = "accessory"
+text = "accessory calculator 3000"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1752650886]
 custom_minimum_size = Vector2(0, 100)

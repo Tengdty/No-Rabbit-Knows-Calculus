@@ -18,6 +18,7 @@ var was_on_floor: bool = false
 var charge_time: float = 0.0
 var isJumping: bool = false
 
+# NOTE to modify the player's default values, use player_stats.gd
 var speed_pen: float = 0.05
 var min_jump_power: float = 400.0
 var max_jump_power: float = 600.0
