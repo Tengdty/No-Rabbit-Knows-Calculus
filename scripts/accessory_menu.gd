@@ -29,7 +29,9 @@ func _ready() -> void:
 		var btn: Button = hboxcontainer.get_child(i)
 		btn.pressed.connect(func():
 			selected_slot = i;
-			print("selected acc slot =",i,"!")
+			print(equipmentManager.unequip(i))
+			btn.icon = null
+			
 		)
 	_refresh_buttons()
 		
@@ -58,6 +60,10 @@ func _on_accessory_pressed(index: int):
 	var accessory: AccessoryData = _get_accessory_by_index(index)
 	
 	if not accessory or not equipmentManager.is_unlocked(accessory):
+		return
+		
+	if (accessory == equipmentManager.getEquipped(0) 
+		or accessory == equipmentManager.getEquipped(1)):
 		return
 	
 	equipmentManager.equip(selected_slot, accessory)

@@ -11,7 +11,7 @@ description = "Why do they have wings? +50% horizontal movement speed"
 abilities = Array[PackedScene]([ExtResource("1_y5vkh")])
 texture = ExtResource("3_hgxo1")
 accessory_stats = Dictionary[StringName, float]({
-&"speed": 300.0,
-&"speed_pen": -0.02
+&"speed": 50.0,
+&"speed_pen": -0.01
 })
 metadata/_custom_type_script = "uid://cpnd3rl8y5kkg"

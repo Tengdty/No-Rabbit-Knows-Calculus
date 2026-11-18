@@ -10,7 +10,7 @@ var baseStats: Dictionary[StringName, float] = {
 	&"min_jump_power": 400,		# minimum jump power
 	&"max_jump_power": 600,		# maximum jump power
 	&"max_charge_time": 2,		# charge time for max jump power
-	&"speed": 300,				# horizontal movement speed
+	&"speed": 100,				# horizontal movement speed
 	&"arrow_speed": -150		# directional arrow rotation speed
 }
 

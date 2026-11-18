@@ -12,6 +12,6 @@ accessory_stats = Dictionary[StringName, float]({
 &"max_charge_time": -3.0,
 &"max_jump_power": 200.0,
 &"min_jump_power": -200.0,
-&"speed": -300.0
+&"speed": -25.0
 })
 metadata/_custom_type_script = "uid://cpnd3rl8y5kkg"
