@@ -1,4 +1,3 @@
-@tool
 extends Node2D
 
 @export_category("Generation Settings")
@@ -54,6 +53,9 @@ func generate_worlds() -> void:
 	for world_folder in world_folders:
 		var world_path = worlds_path.path_join(world_folder)
 		var world_node = world_section_scene.instantiate()
+		
+		world_node.name = "World_" + world_folder
+		
 		add_child(world_node)
 		
 		if Engine.is_editor_hint() and scene_root:
