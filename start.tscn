@@ -91,4 +91,5 @@ grow_vertical = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1596796188]
 stream = ExtResource("5_oiuna")
+volume_db = -6.734
 autoplay = true

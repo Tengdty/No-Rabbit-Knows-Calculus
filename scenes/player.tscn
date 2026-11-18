@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://kedhy7jjbm40" path="res://accessories/acessory_gui.tscn" id="2_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://bygss3hu418rb" path="res://assets/sprites/images/Arrow/arrow.png" id="3_i3pqv"]
 [ext_resource type="AudioStream" uid="uid://hbgmttgm370i" path="res://assets/audio/player/walk.wav" id="4_dqkch"]
-[ext_resource type="AudioStream" uid="uid://stnlgasb0jti" path="res://assets/audio/player/jump.wav" id="4_qlg0r"]
-[ext_resource type="AudioStream" uid="uid://bpebk3ab8tbme" path="res://assets/audio/player/step_1.wav" id="5_fjrip"]
 [ext_resource type="Script" uid="uid://cbicx527jc2hq" path="res://scripts/equipment_manager.gd" id="5_qlg0r"]
-[ext_resource type="AudioStream" uid="uid://cwvsh3hc7rsus" path="res://assets/audio/player/step_2.wav" id="6_smehm"]
+[ext_resource type="AudioStream" uid="uid://ffh8j6yukenp" path="res://assets/audio/player/walk1new.wav" id="6_qfm1y"]
+[ext_resource type="AudioStream" uid="uid://dlcfucfpwj1q1" path="res://assets/audio/player/walk2new.wav" id="7_fulsm"]
+[ext_resource type="AudioStream" uid="uid://dfck7lsfl3tok" path="res://assets/audio/player/new_jump.ogg" id="8_qfm1y"]
 [ext_resource type="Script" uid="uid://ci174fidmdkow" path="res://scripts/player_stats.gd" id="9_ur7pv"]
 [ext_resource type="Script" uid="uid://cpnd3rl8y5kkg" path="res://scripts/accessory.gd" id="10_qfm1y"]
 [ext_resource type="Resource" uid="uid://bkurj3rodhbbw" path="res://accessories/data/DogPawMedicine.tres" id="11_fulsm"]
@@ -396,8 +396,8 @@ _data = {
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qlg0r"]
 streams_count = 2
-stream_0/stream = ExtResource("5_fjrip")
-stream_1/stream = ExtResource("6_smehm")
+stream_0/stream = ExtResource("6_qfm1y")
+stream_1/stream = ExtResource("7_fulsm")
 
 [node name="Player" type="CharacterBody2D" unique_id=2077856055]
 z_index = 5
@@ -435,10 +435,13 @@ autoplay = &"idle"
 
 [node name="WalkSound" type="AudioStreamPlayer" parent="." unique_id=1055735841]
 stream = SubResource("AudioStreamRandomizer_qlg0r")
+volume_db = -9.848
 bus = &"SFX"
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=735976496]
-stream = ExtResource("4_qlg0r")
+stream = ExtResource("8_qfm1y")
+volume_db = -3.914
+pitch_scale = 1.02
 
 [node name="EquipmentManager" type="Node" parent="." unique_id=578148600 node_paths=PackedStringArray("player_stats")]
 script = ExtResource("5_qlg0r")
