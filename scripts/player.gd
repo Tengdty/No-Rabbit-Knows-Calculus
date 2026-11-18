@@ -140,6 +140,11 @@ func _process(delta: float) -> void:
 			arrowRoot.global_rotation_degrees += val
 		elif Input.is_action_pressed("turn_right") and not arrowRoot.global_rotation_degrees >= -10:
 			arrowRoot.global_rotation_degrees -= val
+			
+		if arrowRoot.global_rotation_degrees < -90:
+			animated_sprite_2d.flip_h = true
+		else:
+			animated_sprite_2d.flip_h = false
 
 func burrow() -> void:
 	await get_tree().create_timer(BURROW_DELAY).timeout
