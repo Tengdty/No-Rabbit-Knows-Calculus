@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cdibg7iqc22y3"]
+
+[ext_resource type="Script" uid="uid://dbixyiyi4x5ho" path="res://accessories/abilities/doublejumpability.gd" id="1_ffqiy"]
+
+[node name="Doublejumpability" type="Node2D" unique_id=648746140]
+script = ExtResource("1_ffqiy")

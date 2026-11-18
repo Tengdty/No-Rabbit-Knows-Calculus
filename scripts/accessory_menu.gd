@@ -29,7 +29,7 @@ func _ready() -> void:
 		var btn: Button = hboxcontainer.get_child(i)
 		btn.pressed.connect(func():
 			selected_slot = i;
-			print(equipmentManager.unequip(i))
+			equipmentManager.unequip(i)
 			btn.icon = null
 			
 		)
